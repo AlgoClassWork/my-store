@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html>
-<head> <title>Регистрация</title> </head>
-<body>
-<h1>Регистрация</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Зарегестрироваться">
-</form>
-<p> <a href="{% url 'product_list' %}"> Назад к товарам </a> </p>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="page">
+    <main class="container">
+        <div class="form-card">
+            <h1 class="form-title">📝 Регистрация</h1>
+            <form method="post" class="register-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Зарегистрироваться" class="submit-button">
+            </form>
+            <p><a href="{% url 'product_list' %}" class="back-link">← Назад к товарам</a></p>
+        </div>
+    </main>
 </body>
 </html>
