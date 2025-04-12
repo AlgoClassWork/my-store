@@ -3,7 +3,7 @@
 <head><title>Магазин</title></head>
 <body>
 <h1>Наши товары</h1>
-<p><a href="{% url 'cart_detail' %}">Корзина</a> | <a href="{% url 'register' %}">Регистрация</a></p>
+<p><a href="">Корзина</a> | <a href="">Регистрация</a></p>
 <ul>
 {% for product in products %}
     <li><a href="{% url 'product_detail' product.id %}">{{ product.name }} - {{ product.price }}</a></li>
