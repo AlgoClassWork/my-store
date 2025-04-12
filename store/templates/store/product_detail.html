@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>{{ product.name }}</title></head>
+<body>
+<h1>{{ product.name }}</h1>
+<p>Цена: {{ product.price }}</p>
+<p>{{ product.description }}</p>
+<form action="{% url 'cart_add' product.id %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Добавить в корзину">
+</form>
+<a href="{% url 'product_list' %}">Назад</a>
+</body>
+</html>
