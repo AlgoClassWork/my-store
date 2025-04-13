@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
+
+from .cart import Cart
 from .models import Product
 
 from .forms import RegistrationForm
@@ -22,3 +24,13 @@ def register(request):
     else:
         form = RegistrationForm()
     return render(request, 'store/register.html', {'form' : form})
+
+def cart_add(request, product_id):
+    cart = Cart(request)
+    product = get_object_or_404(Product, id=product_id)
+    cart.add(product=product)
+    return redirect('product_list')
+
+def cart_detail(request):
+    cart = Cart(request)
+    return render(request, 'store/cart_detail.html', {'cart':cart})
