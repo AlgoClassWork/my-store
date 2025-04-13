@@ -13,6 +13,12 @@
             <h1 class="product-title">{{ product.name }}</h1>
             <p class="product-price">Цена: <strong>{{ product.price }} ₽</strong></p>
             <p class="product-description">{{ product.description }}</p>
+
+            <form action="{% url 'cart_add' product.id %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Добавить в корзину">
+            </form>
+            
             <a href="{% url 'product_list' %}" class="back-button">← Назад к товарам</a>
         </div>
     </main>
